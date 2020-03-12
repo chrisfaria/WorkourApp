@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace WorkoutCoreAPI
 {
-    public class Program
+    public class DayProgram
     {
         public static void Main(string[] args)
         {

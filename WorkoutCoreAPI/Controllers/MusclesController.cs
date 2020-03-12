@@ -21,12 +21,27 @@ namespace WorkoutCoreAPI.Controllers
         // GET: api/Muscles
         [HttpGet]
         [Route("")]
-        public IEnumerable<string> GetAll()
+        public async Task<ActionResult<IEnumerable<string>>> GetAll()
         {
-            return _muscleGroupData.GetTodaysMuscles();
+            List<string> output = _muscleGroupData.GetTodaysMuscles();
+
+            var outputTaskList = new List<Task<List<string>>>();
+            outputTaskList.Add(_muscleGroupData.GetTodaysMusclesAsync());
+            outputTaskList.Add(_muscleGroupData.GetTodaysMuscles2Async());
+
+            
+            Task.WaitAll(outputTaskList.ToArray());
+
+            var result = outputTaskList.Select(t => t.Result)
+                                       .SelectMany(r => r)
+                                       .ToList();
+
+            output.AddRange(result);
+
+            return Ok(output);
         }
 
-        // GET: api/Muscles/Sat
+        // GET: api/Muscles/date/sat
         [HttpGet]
         [Route("date/{day}")]
         public IEnumerable<string> GetForDate(string day)

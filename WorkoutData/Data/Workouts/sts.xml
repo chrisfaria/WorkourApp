@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<workout>
+  <name>Shortcut to Shred</name>
+  <dayprograms>
+    <DayProgram>
+      <day>Mon</day>
+      <exercises>
+        <Exercise>
+          <name>Squat</name>
+          <weight>100</weight>
+          <sets>4</sets>
+          <reps>8</reps>
+        </Exercise>
+        <Exercise>
+          <name>Leg Extension</name>
+          <weight>300</weight>
+          <sets>6</sets>
+          <reps>8</reps>
+        </Exercise>
+        <Exercise>
+          <name>Calve Raise</name>
+          <weight>200</weight>
+          <sets>4</sets>
+          <reps>13</reps>
+        </Exercise>
+      </exercises>
+    </DayProgram>
+  </dayprograms>
+</workout>

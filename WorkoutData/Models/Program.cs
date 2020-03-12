@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WorkoutData.Models
 {
-    public class Program
+    public class DayProgram
     {
         public string day { get; set; }
         public List<Exercise> exercises { get; set; }
