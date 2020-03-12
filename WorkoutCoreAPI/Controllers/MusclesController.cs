@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using WorkoutData.IO;
 
 namespace WorkoutCoreAPI.Controllers
@@ -13,9 +14,12 @@ namespace WorkoutCoreAPI.Controllers
     public class MusclesController : ControllerBase
     {
         private IMuscleGroupData _muscleGroupData;
-        public MusclesController(IMuscleGroupData muscleGroupData)
+        private IConfiguration _configuration;
+
+        public MusclesController(IMuscleGroupData muscleGroupData, IConfiguration configuration)
         {
             _muscleGroupData = muscleGroupData;
+            _configuration = configuration;
         }
 
         // GET: api/Muscles
@@ -29,7 +33,7 @@ namespace WorkoutCoreAPI.Controllers
             outputTaskList.Add(_muscleGroupData.GetTodaysMusclesAsync());
             outputTaskList.Add(_muscleGroupData.GetTodaysMuscles2Async());
 
-            
+            // EX. ASYNC/AWAIT
             Task.WaitAll(outputTaskList.ToArray());
 
             var result = outputTaskList.Select(t => t.Result)
@@ -48,7 +52,10 @@ namespace WorkoutCoreAPI.Controllers
         {
             string[] musclesForDate;
 
-            if (day.ToLower() == "today")
+            // EX. CONFIGURATION
+            var mode = _configuration.GetConnectionString("mode");
+
+            if (day.ToLower() == "today" && mode == "todayallowed")
             {
                 musclesForDate = new[] { "tummy", "hips" };
             }
