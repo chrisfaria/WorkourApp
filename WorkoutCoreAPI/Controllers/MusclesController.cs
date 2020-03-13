@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using WorkoutCoreAPI.Models;
 using WorkoutData.IO;
 
 namespace WorkoutCoreAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    //[ApiController]
     public class MusclesController : ControllerBase
     {
         private IMuscleGroupData _muscleGroupData;
@@ -61,10 +62,29 @@ namespace WorkoutCoreAPI.Controllers
             }
             else
             {
-                musclesForDate = new[] { "date", day };
+                musclesForDate = new[] { "chest", "triceps" };
             }
 
             return musclesForDate;
+        }
+
+        // POST: api/Muscles
+        [HttpPost]
+        public async Task<ActionResult<DayProgram>> NewDayProgram([FromBody] DayProgram dp)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    dp.exercises.Add("hammer!");
+                }
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Creation error");
+            }
+
+            return Created("", dp);
         }
 
         // GET: api/Muscles/5
@@ -72,12 +92,6 @@ namespace WorkoutCoreAPI.Controllers
         public string Get(int id)
         {
             return "value";
-        }
-
-        // POST: api/Muscles
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
         }
 
         // PUT: api/Muscles/5
