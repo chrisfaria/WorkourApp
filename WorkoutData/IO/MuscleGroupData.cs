@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WorkoutData.Models;
@@ -58,8 +59,17 @@ namespace WorkoutData.IO
             exercises.Add(new Exercise { name = "squat", weight = 200, sets = 4, reps = 7 });
             exercises.Add(new Exercise { name = "bench", weight = 150, sets = 4, reps = 13 });
             exercises.Add(new Exercise { name = "crunch", weight = 0, sets = 5, reps = 25 });
+            exercises.Add(new Exercise { name = "fly", weight = 100, sets = 4, reps = 7 });
+            exercises.Add(new Exercise { name = "leg extensions", weight = 150, sets = 4, reps = 13 });
+            exercises.Add(new Exercise { name = "calf raise", weight = 300, sets = 5, reps = 25 });
 
-            DayProgram dp = new DayProgram { day = "wed", exercises = exercises };
+            // Converts the List to IEnumerable
+            var query = from Exercise exec in exercises
+                        where exec.reps <= 20
+                        select exec;
+
+            // Convert the query back to a list
+            DayProgram dp = new DayProgram { day = "wed", exercises = query.ToList() };
 
             return dp;
         }
