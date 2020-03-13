@@ -14,8 +14,8 @@ namespace WorkoutCoreAPI.Controllers
     //[ApiController]
     public class MusclesController : ControllerBase
     {
-        private IMuscleGroupData _muscleGroupData;
-        private IConfiguration _configuration;
+        private readonly IMuscleGroupData _muscleGroupData;
+        private readonly IConfiguration _configuration;
 
         public MusclesController(IMuscleGroupData muscleGroupData, IConfiguration configuration)
         {
