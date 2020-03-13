@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using WorkoutData.Models;
 
 namespace WorkoutData.IO
 {
@@ -8,6 +9,7 @@ namespace WorkoutData.IO
         List<string> GetTodaysMuscles();
         Task<List<string>> GetTodaysMusclesAsync();
         Task<List<string>> GetTodaysMuscles2Async();
+        Task<DayProgram> GetDayProgramAsync();
 
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using WorkoutData.Models;
 
 namespace WorkoutData.IO
 {
@@ -47,6 +48,20 @@ namespace WorkoutData.IO
             await Task.Delay(6000);
 
             return muscleGroups;
+        }
+
+        public async Task<DayProgram> GetDayProgramAsync()
+        {
+            await Task.Delay(2000);
+
+            List<Exercise> exercises = new List<Exercise>();
+            exercises.Add(new Exercise { name = "squat", weight = 200, sets = 4, reps = 7 });
+            exercises.Add(new Exercise { name = "bench", weight = 150, sets = 4, reps = 13 });
+            exercises.Add(new Exercise { name = "crunch", weight = 0, sets = 5, reps = 25 });
+
+            DayProgram dp = new DayProgram { day = "wed", exercises = exercises };
+
+            return dp;
         }
     }
 }
