@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkoutData", "WorkoutData\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkoutCoreAPI", "WorkoutCoreAPI\WorkoutCoreAPI.csproj", "{F123B966-317D-4F50-9F6A-9861DC4C974D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutCoreMVC", "WorkoutCoreMVC\WorkoutCoreMVC.csproj", "{9011A6E9-A396-408E-9396-8F57AB31F140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkoutCoreMVC", "WorkoutCoreMVC\WorkoutCoreMVC.csproj", "{9011A6E9-A396-408E-9396-8F57AB31F140}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutTest", "WorkoutTest\WorkoutTest.csproj", "{75C541D6-E491-41B2-8248-CED1A3FEB440}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9011A6E9-A396-408E-9396-8F57AB31F140}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9011A6E9-A396-408E-9396-8F57AB31F140}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9011A6E9-A396-408E-9396-8F57AB31F140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75C541D6-E491-41B2-8248-CED1A3FEB440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75C541D6-E491-41B2-8248-CED1A3FEB440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75C541D6-E491-41B2-8248-CED1A3FEB440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75C541D6-E491-41B2-8248-CED1A3FEB440}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
