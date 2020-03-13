@@ -26,8 +26,12 @@ namespace WorkoutCoreMVC.Controllers
 
         public async Task<IActionResult> IndexAsync()
         {
+            // user from command line: "dotnet watch run" to run this. On rebuild it will save it. You must still refresh the browser
+            // Can fix the browser to auto refresh: https://weblog.west-wind.com/posts/2019/May/18/Live-Reloading-Server-Side-ASPNET-Core-Apps
+
             var dp = await _mgdata.GetDayProgramAsync();
 
+            // not sent to the View through "@model"
             List<string> workouts = new List<string>();
             workouts.Add("Biceps2");
             workouts.Add("Triceps2");

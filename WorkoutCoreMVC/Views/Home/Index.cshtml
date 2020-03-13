@@ -5,8 +5,13 @@
 
     <div class="text-center">
         <h1 class="display-4">Welcome</h1>
-        <p>Today is @Model.day.Length</p>
-        <p>There are XX exercises</p>
+        <p>Today is @Model.day</p>
+        <p>There are @Model.exercises.Count exercisess!!</p>
 
-
+        <ul>
+            @foreach(WorkoutData.Models.Exercise exercise in Model.exercises)
+            {
+                <li>@exercise.name - @exercise.weight</li>
+            }
+        </ul>
     </div>
